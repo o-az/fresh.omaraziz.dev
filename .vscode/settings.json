@@ -31,5 +31,5 @@
   "css.validate": false,
   "emmet.includeLanguages": {
     "javascript": "html",
-  },
+  }
 }

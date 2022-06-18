@@ -1,4 +1,5 @@
-import { Handlers } from '$fresh/server.ts';
+import { Handlers } from "$fresh/server.ts";
+import { apply } from "@tw";
 
 const CSS = /* css */ `
 * {
@@ -215,8 +216,8 @@ export const handler: Handlers = {
   GET: () => {
     return new Response(CSS, {
       headers: {
-        'content-type': 'text/css',
-        'cache-control': 'public, max-age=31536000, immutable',
+        "content-type": "text/css",
+        "cache-control": "public, max-age=31536000, immutable",
       },
     });
   },

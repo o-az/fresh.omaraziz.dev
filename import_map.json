@@ -1,0 +1,15 @@
+{
+  "imports": {
+    "@/": "./src/",
+    "@tw": "./src/utilities/twind.ts",
+    "$fresh/": "https://raw.githubusercontent.com/lucacasonato/fresh/84a4305eeba97ad7fc41a49aae9a1b3da3895698/",
+    "$twind": "https://esm.sh/twind@0.16.16",
+    "$twind/": "https://esm.sh/twind@0.16.16/",
+    "$twind/typography": "https://cdn.skypack.dev/@twind/typography",
+    "$prism": "https://esm.sh/prismjs@1.27.0",
+    "$prism/": "https://esm.sh/prismjs@1.27.0/",
+    "$twas": "https://esm.sh/twas@2.1.2",
+    "$emoji": "https://deno.land/x/emoji@0.1.2/mod.ts",
+    "$std/": "https://deno.land/std@0.143.0/"
+  }
+}

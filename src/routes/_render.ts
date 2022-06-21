@@ -1,14 +1,14 @@
 // This module adds twind support.
 
-import { RenderContext, RenderFn } from '$fresh/server.ts';
-import { setup, twindConfig } from '@/utilities/twind.ts';
+import { InnerRenderFunction, RenderContext } from '$fresh/server.ts';
+import { setup, twindConfig } from '@/config/twind.ts';
 import { virtualSheet } from '$twind/sheets';
 
 const sheet = virtualSheet();
 sheet.reset();
 setup({ ...twindConfig, sheet });
 
-export function render(context: RenderContext, render: RenderFn) {
+export function render(context: RenderContext, render: InnerRenderFunction) {
   const snapshot = context.state.get('twindSnapshot') as unknown[] | null;
   sheet.reset(snapshot || undefined);
   render();

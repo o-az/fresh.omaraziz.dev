@@ -31,5 +31,8 @@
   "css.validate": false,
   "emmet.includeLanguages": {
     "javascript": "html",
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
   }
 }

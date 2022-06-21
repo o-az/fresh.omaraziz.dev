@@ -1,5 +1,5 @@
 /** @jsx h */
-import { h } from "$fresh/runtime.ts";
+import { h } from "preact";
 import Toggle from "@/components/Toggle.tsx";
 import { tw } from "@tw";
 
@@ -30,7 +30,7 @@ const HEADER_ITEMS: ReadonlyArray<HeaderItem> = [
 export default function Header() {
   return (
     <div
-      class={tw`flex m-1 justify-between px-3 sm:px-5 bg-transparent font-mono`}
+      class={tw`flex m-1 mt-3 justify-between px-3 sm:px-5 bg-transparent font-mono`}
     >
       <nav
         class={tw

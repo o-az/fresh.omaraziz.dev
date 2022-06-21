@@ -1,7 +1,10 @@
 import { Handlers } from "$fresh/server.ts";
-import { apply } from "@tw";
 
 const CSS = /* css */ `
+:root {
+  color-scheme: light dark;
+}
+
 * {
   vertical-align: baseline;
   font-weight: inherit;
@@ -21,6 +24,11 @@ const CSS = /* css */ `
   box-sizing: border-box;
 }
 
+::selection {
+  background-color: rgba(231, 189, 243, 0.913);
+  color: #f0f0f0;
+}
+
 html {
   height: 100%;
 }
@@ -36,8 +44,7 @@ body {
   font-weight: 400;
 }
 
-#root,
-#__next {
+body {
   isolation: isolate;
 }
 

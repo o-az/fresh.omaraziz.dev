@@ -1,5 +1,5 @@
 /** @jsx h */
-import { h } from "$fresh/runtime.ts";
+import { h } from "preact";
 import Page from "@/components/Page.tsx";
 import { tw } from "@tw";
 
@@ -28,7 +28,7 @@ export default function Home() {
     <Page>
       <main
         class={tw
-          `mt-32 sm:mt-50 relative grid grid-flow-col items-center text-center text-white h-full`}
+          `mt-32 sm:mt-50 relative grid grid-flow-col items-center text-center text-white h-full mx-auto`}
       >
         <section
           class={tw

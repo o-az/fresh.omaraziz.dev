@@ -1,6 +1,8 @@
 /** @jsx h */
-import { h, PageProps } from "$fresh/runtime.ts";
-import Page from "@/components/Page.tsx";
+import { h } from 'preact';
+import { type PageProps } from '$fresh/runtime.ts';
+
+import Page from '@/components/Page.tsx';
 
 export default function Greet(props: PageProps) {
   return (

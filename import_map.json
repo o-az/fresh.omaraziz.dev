@@ -10,9 +10,6 @@
     "$twind/css": "https://esm.sh/twind@0.16.17/css",
     "preact": "https://esm.sh/preact@10.8.1",
     "preact/": "https://esm.sh/preact@10.8.1/",
-    "preact-render-to-string": "https://esm.sh/preact-render-to-string@5.2.0?deps=preact@10.8.1",
-    "preact-render-to-string/jsx": "https://esm.sh/preact-render-to-string@5.2.0/jsx?deps=preact@10.8.1",
-    "@mdx-js/preact": "https://esm.sh/@mdx-js/preact@2.1.2",
-    "$semver/": "https://deno.land/x/semver@v1.4.0/"
+    "preact-render-to-string": "https://esm.sh/preact-render-to-string@5.2.0?deps=preact@10.8.1"
   }
 }

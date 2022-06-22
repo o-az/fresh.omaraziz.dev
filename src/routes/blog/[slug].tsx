@@ -28,14 +28,6 @@ export default function Blog(props: PageProps<Page>) {
     <Page
       stylesheets={[
         '/markdown.css',
-        'https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-atom-dark.min.css',
-        'https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/unescaped-markup/prism-unescaped-markup.min.css',
-        'https://cdn.jsdelivr.net/npm/katex@0.15.0/dist/katex.min.css',
-      ]}
-      scripts={[
-        'https://cdn.jsdelivr.net/npm/prismjs@1.28.0/prism.min.js',
-        'https://cdn.jsdelivr.net/npm/prismjs@1.28.0/plugins/line-numbers/prism-line-numbers.min.js',
-        'https://cdn.jsdelivr.net/npm/prismjs@1.28.0/plugins/highlight-keywords/prism-highlight-keywords.min.js',
       ]}
     >
       <main
@@ -44,7 +36,8 @@ export default function Blog(props: PageProps<Page>) {
       >
         <h1
           data-article-title
-          class={tw`w-full pb-5 sm:pb-5 -mb-2 text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl`}
+          class={tw
+            `w-full pb-5 sm:pb-5 -mb-2 text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl`}
         >
           {title}
         </h1>

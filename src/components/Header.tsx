@@ -1,7 +1,7 @@
 /** @jsx h */
-import { h } from "preact";
-import Toggle from "@/components/Toggle.tsx";
-import { tw } from "@tw";
+import { h } from 'preact';
+import Toggle from '@/components/toggle.tsx';
+import { tw } from '@tw';
 
 interface HeaderItem {
   name: string;
@@ -10,20 +10,20 @@ interface HeaderItem {
 
 const HEADER_ITEMS: ReadonlyArray<HeaderItem> = [
   {
-    name: "home",
-    path: "/",
+    name: 'home',
+    path: '/',
   },
   {
-    name: "blog",
-    path: "/blog",
+    name: 'blog',
+    path: '/blog',
   },
   {
-    name: "projects",
-    path: "/projects",
+    name: 'projects',
+    path: '/projects',
   },
   {
-    name: "gm",
-    path: "/gm",
+    name: 'gm',
+    path: '/gm',
   },
 ] as const;
 
@@ -51,8 +51,7 @@ export default function Header() {
           })}
         </ul>
         <div
-          class={tw
-            `text-center sm:text-right sm:pr-5 w-full h-full align-middle sm:pb-2`}
+          class={tw`text-center sm:text-right sm:pr-5 w-full h-full align-middle overflow-hidden`}
         >
           <Toggle />
         </div>

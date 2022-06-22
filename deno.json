@@ -31,10 +31,9 @@
     },
     "options": {
       "useTabs": false,
-      "lineWidth": 120,
+      "lineWidth": 100,
       "indentWidth": 2,
-      "singleQuote": true,
-      "proseWrap": "preserve"
+      "singleQuote": true
     }
   }
 }

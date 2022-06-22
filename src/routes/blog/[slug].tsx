@@ -72,14 +72,14 @@ export default function Blog(props: PageProps<Page>) {
           dangerouslySetInnerHTML={{ __html: html }}
         />
         <script
-          data-name='github-comments'
           src='https://giscus.app/client.js'
-          data-repo='o-az/omaraziz.dev'
-          data-repo-id='R_kgDOHUnWOw'
+          data-repo='o-az/fresh.omaraziz.dev'
+          data-repo-id='R_kgDOHhfrxQ'
           data-category='General'
-          data-category-id='DIC_kwDOHUnWO84CPZZM'
+          data-category-id='DIC_kwDOHhfrxc4CP024'
           data-mapping='title'
           data-reactions-enabled='1'
+          data-emit-metadata='1'
           data-input-position='top'
           data-theme='dark'
           data-lang='en'

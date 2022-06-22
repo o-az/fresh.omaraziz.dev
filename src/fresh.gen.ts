@@ -2,25 +2,27 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from './routes/api/ping.ts';
-import * as $1 from './routes/blog/[slug].tsx';
-import * as $2 from './routes/blog/index.tsx';
-import * as $3 from './routes/gm.tsx';
-import * as $4 from './routes/index.css.ts';
-import * as $5 from './routes/index.tsx';
-import * as $6 from './routes/markdown.css.ts';
-import * as $7 from './routes/projects/index.tsx';
+import * as $0 from './routes/_404.tsx';
+import * as $1 from './routes/api/ping.ts';
+import * as $2 from './routes/blog/[slug].tsx';
+import * as $3 from './routes/blog/index.tsx';
+import * as $4 from './routes/gm.tsx';
+import * as $5 from './routes/index.css.ts';
+import * as $6 from './routes/index.tsx';
+import * as $7 from './routes/markdown.css.ts';
+import * as $8 from './routes/projects/index.tsx';
 
 const manifest = {
   routes: {
-    './routes/api/ping.ts': $0,
-    './routes/blog/[slug].tsx': $1,
-    './routes/blog/index.tsx': $2,
-    './routes/gm.tsx': $3,
-    './routes/index.css.ts': $4,
-    './routes/index.tsx': $5,
-    './routes/markdown.css.ts': $6,
-    './routes/projects/index.tsx': $7,
+    './routes/_404.tsx': $0,
+    './routes/api/ping.ts': $1,
+    './routes/blog/[slug].tsx': $2,
+    './routes/blog/index.tsx': $3,
+    './routes/gm.tsx': $4,
+    './routes/index.css.ts': $5,
+    './routes/index.tsx': $6,
+    './routes/markdown.css.ts': $7,
+    './routes/projects/index.tsx': $8,
   },
   islands: {},
   baseUrl: import.meta.url,

@@ -1,6 +1,6 @@
 /** @jsx h */
 import { h } from 'preact';
-import Toggle from '@/components/toggle.tsx';
+import Toggle from '@/components/Toggle.tsx';
 import { tw } from '@tw';
 
 interface HeaderItem {

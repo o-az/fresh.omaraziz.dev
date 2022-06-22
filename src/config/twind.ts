@@ -1,10 +1,10 @@
-import { apply, type Configuration, setup, tw } from '$twind';
+import { apply, type Configuration, cssomSheet, setup, tw } from '$twind';
 
 import { css } from '$twind/css';
 import * as colors from '$twind/colors';
 import twindTypography from '$twind/typography';
 import { virtualSheet } from '$twind/sheets';
-import { type InnerRenderFunction, RenderContext, start } from '$fresh/server.ts';
+import { type InnerRenderFunction, RenderContext } from '$fresh/server.ts';
 
 import { IS_BROWSER } from '$fresh/runtime.ts';
 

@@ -1,3 +1,14 @@
+export async function readFile(filepath: string): Promise<string> {
+  try {
+    const path = new URL(filepath, import.meta.url);
+    return await Deno.readTextFile(path);
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : `Encoutered an error: ` + error;
+    throw new Error(errorMessage);
+  }
+}
+
+
 export const randomArrayElement = <T>(array: T[]): T => array[Math.floor(Math.random() * array.length)] as T;
 
 export const removeFalsy = <T>(object: T): NonNullable<T> => JSON.parse(JSON.stringify(object));

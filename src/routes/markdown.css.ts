@@ -4,13 +4,14 @@ import { apply } from '@tw';
 // const CSS = /* css */ ``
 
 const CSS = /* css */ `
+
+[data-article-content] > l > hr + h2 {
+  display: none;
+}
+
 :root {
   --article-background-dark: rgb(29, 225, 49);
   --article-background-light: hsla(244, 49.5%, 97%, 11)
-}
-hr > * {
-  visibility: hidden;
-  display:none;
 }
 
 p {
@@ -82,17 +83,17 @@ main,article,p,div {
 * {
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
-  max-width: 100%
+  max-width: 100%;
 }
 
 html.dark [data-theme=light],
 html.light [data-theme=dark] {
   display: none;
-  visibility: hidden
+  visibility: hidden;
 }
 
 [data-line-numbers] {
-  counter-reset: line
+  counter-reset: line;
 }
 
 [data-line-numbers] > .line:before {
@@ -109,27 +110,27 @@ html.light [data-theme=dark] {
   --tw-numeric-spacing: tabular-nums;
   --tw-numeric-fraction: var(--tw-empty, );
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
-  margin-right: 8px
+  margin-right: 8px;
 }
 [data-line-numbers] > .line:before:hover {
   --tw-text-opacity: 1;
-  color: rgba(243, 244, 246, var(--tw-text-opacity))
+  color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 @media (min-width: 640px) {
   [data-line-numbers] > .line:before {
-    margin-right: 12px
+    margin-right: 12px;
   }
 }
 p,
 span {
   max-width: 100%;
   --tw-text-opacity: 1;
-  color: rgba(31, 41, 55, var(--tw-text-opacity))
+  color: rgba(31, 41, 55, var(--tw-text-opacity));
 }
 .dark p,
 .dark span {
   --tw-text-opacity: 1;
-  color: rgba(243, 244, 246, var(--tw-text-opacity))
+  color: rgba(243, 244, 246, var(--tw-text-opacity));
 }
 pre {
   width: 100%;
@@ -148,7 +149,7 @@ pre[class*=language-] {
   background-color: transparent;
   max-width: 100%;
   overflow-x: auto;
-  word-break: break-all
+  word-break: break-all;
 }
 *[class*=prose] div[data-rehype-pretty-code-fragment] {
   font-family: JetBrains Mono;
@@ -323,9 +324,9 @@ span.line > span {
   text-decoration: none;
   width: 100%;
   cursor: pointer;
-  margin-left: -.5rem;
+  /* margin-left: -.5rem; */
   max-width: 700px;
-  padding-right: .5rem
+  /* padding-right: .5rem */
 }
 .prose a {
   width: 100%;
@@ -344,8 +345,9 @@ span.line > span {
   color: rgba(209, 213, 219, var(--tw-text-opacity));
   font-size: 1.25rem;
   line-height: 1.75rem;
-  margin-right: .375rem;
-  content: "#"
+  /* margin-right: .375rem; */
+  padding-right: 0.6rem;
+  content: "#";
 }
 
 .dark .anchor:before {
@@ -465,7 +467,7 @@ svg {
 #table-of-contents {
   font-size: 1.2rem;
   line-height: 1;
-  margin-top: 0 !important;
+  margin-top: 1.5rem !important;
   margin-bottom: 0 !important
 }
 #table-of-contents ~ ul > li > a {
@@ -684,8 +686,8 @@ p {
   border-color: rgba(59, 130, 246, var(--tw-border-opacity));
   border-left-width: 4px;
   display: block;
-  margin-left: -1rem;
-  margin-right: -1rem;
+  /* margin-left: -1rem; */
+  /* margin-right: -1rem; */
   padding-left: 1rem;
   padding-right: 1rem
 }

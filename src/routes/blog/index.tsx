@@ -44,7 +44,7 @@ export default function Blog(props: PageProps) {
           />
           <ul class={tw`min-w-full max-w-xl space-y-7 mt-4`} id='articles'>
             {filteredArticles.map(
-              ({ title, description, date, filename, tags }) => {
+              ({ title, description, publishedOn, filename, tags }) => {
                 return (
                   <li
                     class={tw

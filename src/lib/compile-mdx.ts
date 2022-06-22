@@ -17,24 +17,10 @@ import {
 import { default as rehypeCodeTitles } from 'https://esm.sh/rehype-code-titles@1.1.0';
 import { default as rehypeSlug } from 'https://esm.sh/rehype-slug@5.0.1';
 import { default as rehypePrism } from 'https://esm.sh/rehype-prism-plus@1.4.1';
+import type { Frontmatter, ParsedContent } from '@/types/index.ts';
+import { readFile } from '@/utilities/index.ts';
 
 const basePath = '../data/articles';
-
-async function readFile(filename: string): Promise<string> {
-  try {
-    const path = new URL(`${basePath}/${filename}.mdx`, import.meta.url);
-    return await Deno.readTextFile(path);
-  } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : `Encoutered an error: ` + error;
-    throw new Error(errorMessage);
-  }
-}
-
-export type Frontmatter = { title: string; publishedOn: string; tags: string[]; image?: string };
-export interface ParsedContent {
-  html: string;
-  frontmatter: Frontmatter;
-}
 
 const rehypeAutolinkHeadingsOptions: RehypeAutolinkHeadings = {
   behavior: 'wrap',
@@ -42,23 +28,16 @@ const rehypeAutolinkHeadingsOptions: RehypeAutolinkHeadings = {
 };
 
 export async function getMdxFile(filename: string): Promise<ParsedContent> {
-  const content = await readFile(filename);
+  const content = await readFile(`${basePath}/${filename}.mdx`);
   const { data: frontmatter } = frontMatter(content) as { data: Frontmatter };
   const { default: evaluateMdx } = await mdx.evaluate(content, {
     rehypePlugins: [
       rehypeCodeTitles,
       rehypeSlug,
       [rehypeAutolinkHeadings, rehypeAutolinkHeadingsOptions],
-      rehypePrism,
+      // rehypePrism,
     ],
     remarkPlugins: [
-      [remarkGfm, {
-        singleTilde: true,
-        tablePipeAlign: true,
-        stringLength: (str: string) => str.length,
-      }],
-      remarkMdxMathEnhanced,
-      // remarkMath,
       [remarkToC, {
         tight: true,
         ordered: false,
@@ -67,6 +46,13 @@ export async function getMdxFile(filename: string): Promise<ParsedContent> {
         parents: undefined,
         maxDepth: 2,
       }],
+      [remarkGfm, {
+        singleTilde: true,
+        tablePipeAlign: true,
+        stringLength: (str: string) => str.length,
+      }],
+      remarkMdxMathEnhanced,
+      // remarkMath,
       remarkMdxImages,
     ],
     useDynamicImport: true,

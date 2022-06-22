@@ -7,7 +7,8 @@ import { tw } from '@tw';
 
 import Page from '@/components/Page.tsx';
 import { dateStringToHuman } from '@/utilities/index.ts';
-import { getMdxFile, type ParsedContent } from '@/lib/compile-mdx.ts';
+import { getMdxFile } from '@/lib/compile-mdx.ts';
+import type { ParsedContent } from '@/types/index.ts';
 
 type Page = ParsedContent;
 type Data = Record<'page', Page>;
@@ -44,7 +45,7 @@ export default function Blog(props: PageProps<Page>) {
       >
         <h1
           data-article-title
-          class={tw`w-full pb-5 sm:pb-8 -mb-2 text-4xl font-bold  sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl`}
+          class={tw`w-full pb-5 sm:pb-5 -mb-2 text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl`}
         >
           {title}
         </h1>
@@ -56,14 +57,14 @@ export default function Blog(props: PageProps<Page>) {
             Omar Aziz /
             {dateStringToHuman(publishedOn)}
           </p>
-          <p class={tw`text-center w-full text-right md:mt-0 max-h-min`}>
-          </p>
+          {/* <p class={tw`text-center w-full text-right md:mt-0 max-h-min`}>
+          </p> */}
         </div>
         <ul class={tw`text-center sm:text-left`}>
           {tags?.map((tag) => (
             <li
               class={tw
-                `rounded-sm font-semibold bg-gray-200 text-sm mr-2 py-1 px-2 text-gray-700 inline-block dark:text-gray-300 dark:bg-gray-800 hover:text-white hover:font-bold hover:bg-gray-400 hover:cursor-text max-h-7`}
+                `rounded-sm font-semibold bg-gray-200 text-sm mr-2 pb-1 px-1 text-gray-700 inline-block dark:text-gray-300 dark:bg-gray-800 hover:text-white hover:font-bold hover:bg-gray-400 hover:cursor-text max-h-7`}
             >
               <p class={tw`focus:outline-none hover:cursor-text`}>{tag}</p>
             </li>
@@ -71,6 +72,7 @@ export default function Blog(props: PageProps<Page>) {
         </ul>
         <article
           id='article'
+          data-article-content
           class={tw
             `flex flex-col h-full min-w-full mb-16 items-start justify-center prose prose-img:rounded-xl prose-img:border-b-2 prose-a:text-blue-300 dark:prose-invert dark:text-gray-700 truncate max-w-full prose-p:text-white text-white dark:test-white`}
           dangerouslySetInnerHTML={{ __html: html }}

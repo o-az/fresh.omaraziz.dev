@@ -7,14 +7,16 @@ const CSS = /* css */ `
 
 * {
   vertical-align: baseline;
-  font-weight: inherit;
-  font-family: inherit;
-  font-style: inherit;
   font-size: 100%;
   outline: 0;
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
+  max-width: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 *,
@@ -40,19 +42,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  position: relative;
-
-  font-weight: 400;
-}
-
-body {
   isolation: isolate;
 }
 
 main {
   padding: 3rem 1rem;
-  max-width: 75rem;
-  margin: 0 auto;
 }
 
 img,

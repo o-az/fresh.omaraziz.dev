@@ -48,7 +48,7 @@ export default function Page(
       </Head>
       <body
         class={tw([
-          "bg-white dark:bg-[#0b0c13] text-black dark:text-white",
+          "bg-white dark:bg-[#0b0c13] text-black dark:text-white mx-auto",
         ])}
       >
         <Header />

@@ -11,7 +11,6 @@ import { getMdxFile } from '@/lib/compile-mdx.ts';
 import type { ParsedContent } from '@/types/index.ts';
 
 type Page = ParsedContent;
-type Data = Record<'page', Page>;
 
 export const handler: Handlers<Page> = {
   async GET(_, context) {
@@ -57,8 +56,10 @@ export default function Blog(props: PageProps<Page>) {
             Omar Aziz /
             {dateStringToHuman(publishedOn)}
           </p>
-          {/* <p class={tw`text-center w-full text-right md:mt-0 max-h-min`}>
-          </p> */}
+          {
+            /* <p class={tw`text-center w-full text-right md:mt-0 max-h-min`}>
+          </p> */
+          }
         </div>
         <ul class={tw`text-center sm:text-left`}>
           {tags?.map((tag) => (
@@ -77,7 +78,23 @@ export default function Blog(props: PageProps<Page>) {
             `flex flex-col h-full min-w-full mb-16 items-start justify-center prose prose-img:rounded-xl prose-img:border-b-2 prose-a:text-blue-300 dark:prose-invert dark:text-gray-700 truncate max-w-full prose-p:text-white text-white dark:test-white`}
           dangerouslySetInnerHTML={{ __html: html }}
         />
-        <div class='giscus'></div>
+        <script
+          data-name='github-comments'
+          src='https://giscus.app/client.js'
+          data-repo='o-az/omaraziz.dev'
+          data-repo-id='R_kgDOHUnWOw'
+          data-category='General'
+          data-category-id='DIC_kwDOHUnWO84CPZZM'
+          data-mapping='title'
+          data-reactions-enabled='1'
+          data-input-position='top'
+          data-theme='dark'
+          data-lang='en'
+          data-loading='lazy'
+          crossOrigin='anonymous'
+          async
+        >
+        </script>
       </main>
     </Page>
   );

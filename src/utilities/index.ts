@@ -8,7 +8,6 @@ export async function readFile(filepath: string): Promise<string> {
   }
 }
 
-
 export const randomArrayElement = <T>(array: T[]): T => array[Math.floor(Math.random() * array.length)] as T;
 
 export const removeFalsy = <T>(object: T): NonNullable<T> => JSON.parse(JSON.stringify(object));

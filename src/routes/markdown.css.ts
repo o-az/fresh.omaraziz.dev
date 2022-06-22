@@ -8,19 +8,93 @@ const CSS = /* css */ `
   --article-background-dark: rgb(29, 225, 49);
   --article-background-light: hsla(244, 49.5%, 97%, 11)
 }
+hr > * {
+  visibility: hidden;
+  display:none;
+}
+
+p {
+  padding: 5px;
+}
+
+main,article,p,div {
+  white-space:pre-line;
+  word-break:break-all;
+  overflow:auto;
+}
+
+*[class*=prose] h1,
+*[class*=prose] h2,
+*[class*=prose] h3,
+*[class*=prose] h4,
+*[class*=prose] h5 {
+  font-family: Inter !important;
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.25rem !important;
+  --tw-text-opacity: 1;
+  color: gray;
+  width: 100%;
+}
+*[class*=prose] h1:hover,
+*[class*=prose] h2:hover,
+*[class*=prose] h3:hover,
+*[class*=prose] h4:hover,
+*[class*=prose] h5:hover {
+  cursor: pointer;
+}
+.dark *[class*=prose] h1:hover,
+.dark *[class*=prose] h2:hover,
+.dark *[class*=prose] h3:hover,
+.dark *[class*=prose] h4:hover,
+.dark *[class*=prose] h5:hover {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+[data-article-title] {
+  will-change: transform;
+  background: linear-gradient(-45deg, #91aadb, #ffdcd0, #a99ede);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-article-title]::selection {
+  background-color: linear-gradient(-45deg, #2b00ff, #fd4c11, #eaff00);
+  -webkit-text-fill-color: initial;
+}
+@keyframes gradient {
+  0% {
+    background-position: 90% 50%;
+  }
+  50% {
+    background-position: 150% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 * {
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
   max-width: 100%
 }
+
 html.dark [data-theme=light],
 html.light [data-theme=dark] {
   display: none;
   visibility: hidden
 }
+
 [data-line-numbers] {
   counter-reset: line
 }
+
 [data-line-numbers] > .line:before {
   counter-increment: line;
   content: counter(line);
@@ -67,7 +141,8 @@ g {
   color: red @apply w-full h-full;
 }
 pre[class*=language-] {
-  width: 100%
+  width: 100%;
+  margin: 25px 0 25px 0 !important;
 }
 *[class*=prose] pre[class*=language-] {
   background-color: transparent;
@@ -272,6 +347,7 @@ span.line > span {
   margin-right: .375rem;
   content: "#"
 }
+
 .dark .anchor:before {
   --tw-text-opacity: 1;
   color: rgba(100, 116, 139, var(--tw-text-opacity))
@@ -280,50 +356,25 @@ span.line > span {
   --tw-text-opacity: 1;
   color: rgba(226, 232, 240, var(--tw-text-opacity))
 }
+
 .dark .prose *:hover > .anchor {
   --tw-text-opacity: 1;
   color: rgba(244, 244, 245, var(--tw-text-opacity))
 }
+
 .prose *:hover > .anchor {
   visibility: visible
 }
-*[class*=prose] h1,
-*[class*=prose] h2,
-*[class*=prose] h3,
-*[class*=prose] h4,
-*[class*=prose] h5 {
-  font-family: Inter !important;
-  font-weight: 800;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  margin-top: 1.25rem !important;
-  margin-bottom: 1.25rem !important;
-  --tw-text-opacity: 1;
-  color: rgba(148, 163, 184, var(--tw-text-opacity));
-  width: 100%
-}
-*[class*=prose] h1:hover,
-*[class*=prose] h2:hover,
-*[class*=prose] h3:hover,
-*[class*=prose] h4:hover,
-*[class*=prose] h5:hover {
-  cursor: pointer
-}
-.dark *[class*=prose] h1:hover,
-.dark *[class*=prose] h2:hover,
-.dark *[class*=prose] h3:hover,
-.dark *[class*=prose] h4:hover,
-.dark *[class*=prose] h5:hover {
-  --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity))
-}
+
 *[class*=prose] pre code {
   border: initial
 }
+
 *[class*=prose] > :first-child {
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important
 }
+
 .token.comment {
   --tw-text-opacity: 1;
   color: rgba(107, 114, 128, var(--tw-text-opacity))
@@ -494,19 +545,23 @@ h1 {
   -o-transition-duration: .2s;
   transition-duration: .2s
 }
+
 .skip-nav:focus {
   top: 1rem;
   --tw-translate-y: .75rem
 }
+
 #skip {
   scroll-margin-top: 1.125rem
 }
+
 @supports not (backdrop-filter: none) {
   .sticky-nav {
     backdrop-filter: none;
     --tw-bg-opacity: 1
   }
 }
+
 .prose pre,
 pre[class*=shiki] {
   --tw-bg-opacity: 1;
@@ -519,6 +574,7 @@ pre[class*=shiki] {
   margin-bottom: .75rem;
   padding: .75rem
 }
+
 .dark .prose pre,
 .dark pre[class*=shiki] {
   --tw-bg-opacity: 1 !important;
@@ -526,6 +582,7 @@ pre[class*=shiki] {
   --tw-border-opacity: 1;
   border-color: rgba(31, 41, 55, var(--tw-border-opacity))
 }
+
 .prose p > code {
   --tw-bg-opacity: 1;
   background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
@@ -536,14 +593,17 @@ pre[class*=shiki] {
   color: rgba(244, 114, 182, var(--tw-text-opacity));
   letter-spacing: .05em
 }
+
 .prose p > code:hover {
   --tw-bg-opacity: 1;
   background-color: rgba(229, 231, 235, var(--tw-bg-opacity))
 }
+
 .dark .prose p > code {
   --tw-bg-opacity: 1;
   background-color: rgba(31, 41, 55, var(--tw-bg-opacity))
 }
+
 .dark .prose p > code:hover {
   background-color: transparent;
   --tw-border-opacity: 1;
@@ -551,28 +611,39 @@ pre[class*=shiki] {
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity))
 }
+
 .prose p > code *::selection,
 .prose p > code::selection {
   --tw-text-opacity: 1;
   color: rgba(75, 85, 99, var(--tw-text-opacity))
 }
+
+p {
+  overflow: hidden !important;
+  word-break: break-all;
+}
+
 .prose pre code {
   padding: 0;
   --tw-text-opacity: 1;
   color: rgba(31, 41, 55, var(--tw-text-opacity));
   border: initial
 }
+
 .dark .prose pre code {
   --tw-text-opacity: 1;
   color: rgba(229, 231, 235, var(--tw-text-opacity))
 }
+
 .prose img {
-  margin: 0
+  margin: 0;
 }
+
 .prose > :first-child {
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important
 }
+
 .rehype-code-title {
   --tw-bg-opacity: 1;
   background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
@@ -590,6 +661,7 @@ pre[class*=shiki] {
   --tw-text-opacity: 1;
   color: rgba(31, 41, 55, var(--tw-text-opacity))
 }
+
 .dark .rehype-code-title {
   --tw-bg-opacity: 1;
   background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
@@ -598,11 +670,13 @@ pre[class*=shiki] {
   --tw-text-opacity: 1;
   color: rgba(229, 231, 235, var(--tw-text-opacity))
 }
+
 .rehype-code-title + pre {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   margin-top: 0
 }
+
 .highlight-line {
   --tw-bg-opacity: 1;
   background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
@@ -619,75 +693,25 @@ pre[class*=shiki] {
   --tw-bg-opacity: 1;
   background-color: rgba(31, 41, 55, var(--tw-bg-opacity))
 }
+
 .metric-card > a {
   text-decoration: none
 }
+
 .metric-card > p {
   margin-top: .5rem;
   margin-bottom: .5rem
 }
+
 .prose .tweet a {
   text-decoration: inherit;
   font-weight: inherit
 }
+
 .prose .callout > p {
   margin: 0 !important
 }
-.flex.svelte-hhn14x {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex
-}
-.flex-col.svelte-hhn14x {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  -webkit-flex-direction: column;
-  flex-direction: column
-}
-.justify-center.svelte-hhn14x {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center
-}
-.mx-auto.svelte-hhn14x {
-  margin-left: auto;
-  margin-right: auto
-}
-.mb-8.svelte-hhn14x {
-  margin-bottom: 2rem
-}
-.max-w-4xl.svelte-hhn14x {
-  max-width: 56rem
-}
-.overflow-hidden.svelte-hhn14x {
-  overflow: hidden
-}
-.px-3.svelte-hhn14x {
-  padding-left: .75rem;
-  padding-right: .75rem
-}
-.antialiased.svelte-hhn14x {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale
-}
-.w-full.svelte-hhn14x {
-  width: 100%
-}
-@media (min-width: 640px) {
-  .sm\:p-6.svelte-hhn14x {
-    padding: 1.5rem
-  }
-  .sm\:px-8.svelte-hhn14x {
-    padding-left: 2rem;
-    padding-right: 2rem
-  }
-  .sm\:w-full.svelte-hhn14x {
-    width: 100%
-  }
-}
+
 [data-article-title] {
   will-change: transform;
   background: linear-gradient(-45deg, #91aadb, #ffdcd0, #a99ede);
@@ -696,10 +720,12 @@ pre[class*=shiki] {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent
 }
+
 [data-article-title]::selection {
   background-color: linear-gradient(-45deg, #2b00ff, #fd4c11, #eaff00);
   -webkit-text-fill-color: initial
 }
+
 @keyframes svelte-hhn14x-gradient {
   0% {
     background-position: 90% 50%

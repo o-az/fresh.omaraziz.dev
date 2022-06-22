@@ -1,66 +1,49 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
-import { Head, type PageProps } from '$fresh/runtime.ts';
-import { createElement, h, render } from 'preact';
+import { type PageProps } from '$fresh/server.ts';
+import { h } from 'preact';
 import { Handlers } from '$fresh/server.ts';
-
-import { apply, css, tw } from '@tw';
+import { tw } from '@tw';
 
 import Page from '@/components/Page.tsx';
 import { dateStringToHuman } from '@/utilities/index.ts';
-import type { Article } from '@/types/index.ts';
-import { type Frontmatter, getMdxFile, type ParsedContent } from '@/lib/compile-mdx.ts';
+import { getMdxFile, type ParsedContent } from '@/lib/compile-mdx.ts';
 
 type Page = ParsedContent;
+type Data = Record<'page', Page>;
 
-interface Data {
-  page: Page;
-}
-
-export const handler: Handlers<Data> = {
-  async GET(request, context) {
+export const handler: Handlers<Page> = {
+  async GET(_, context) {
     const { slug } = context.params;
-    if (slug === '') {
-      return new Response('', { status: 307, headers: { location: '/blog' } });
-    }
-    const { evaluated: { html, frontmatter }, compiled } = await getMdxFile(slug);
-    // console.log(html);
-    return context.render({ page: { html, frontmatter } });
+    if (!slug) return new Response('', { status: 307, headers: { location: '/blog' } });
+    const { html, frontmatter } = await getMdxFile(slug);
+    return context.render({ html, frontmatter });
   },
 };
 
-export default function Blog(props: PageProps<Data>) {
-  const { page } = props.data;
-  const { html, frontmatter: { title, tags, publishedOn, image } } = page;
+export default function Blog(props: PageProps<Page>) {
+  const { html, frontmatter } = props.data;
+  const { title, tags, publishedOn, image } = frontmatter;
   return (
     <Page
-      links={[
+      stylesheets={[
         '/markdown.css',
-        // 'https://omaraziz.dev/assets/markdown.21f7c5c7.css',
-        // 'https://test-svelte-d1b.pages.dev/_app/immutable/assets/pages/blog/__layout-blog.svelte-dd7d28e9.css',
-        // 'https://unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/default.min.css',
-        // 'https://unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/tokyo-night-dark.min.css',
         'https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-atom-dark.min.css',
         'https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/unescaped-markup/prism-unescaped-markup.min.css',
         'https://cdn.jsdelivr.net/npm/katex@0.15.0/dist/katex.min.css',
-      ].map((href) => ({ href, type: 'text/css', rel: 'stylesheet' }))}
-      scripts={[
-        ...[
-          'https://cdn.jsdelivr.net/npm/prismjs@1.28.0/prism.min.js',
-          // 'https://unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js',
-        ].map((src) => ({ src })),
       ]}
-      bodyScripts={[
-        // 'https://unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js',
+      scripts={[
+        'https://cdn.jsdelivr.net/npm/prismjs@1.28.0/prism.min.js',
         'https://cdn.jsdelivr.net/npm/prismjs@1.28.0/plugins/line-numbers/prism-line-numbers.min.js',
         'https://cdn.jsdelivr.net/npm/prismjs@1.28.0/plugins/highlight-keywords/prism-highlight-keywords.min.js',
-      ].map((src) => ({ src }))}
+      ]}
     >
       <main
         class={tw
-          `flex flex-col mx-auto px-6 justify-center sm:w-full sm:px-8 max-w-4xl dark:text-gray-200 mb-8 antialiased w-full overflow-hidden sm:p-6`}
+          `flex flex-col mx-auto px-6 justify-center sm:w-full sm:px-8 max-w-5xl dark:text-gray-200 mb-8 antialiased w-full overflow-hidden sm:p-6`}
       >
         <h1
+          data-article-title
           class={tw`w-full pb-5 sm:pb-8 -mb-2 text-4xl font-bold  sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl`}
         >
           {title}
@@ -90,9 +73,7 @@ export default function Blog(props: PageProps<Data>) {
           id='article'
           class={tw
             `flex flex-col h-full min-w-full mb-16 items-start justify-center prose prose-img:rounded-xl prose-img:border-b-2 prose-a:text-blue-300 dark:prose-invert dark:text-gray-700 truncate max-w-full prose-p:text-white text-white dark:test-white`}
-          dangerouslySetInnerHTML={{
-            __html: html,
-          }}
+          dangerouslySetInnerHTML={{ __html: html }}
         />
         <div class='giscus'></div>
       </main>

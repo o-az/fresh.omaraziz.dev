@@ -1,7 +1,6 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
-import { Head, type PageProps } from '$fresh/runtime.ts';
-import { createElement, Fragment, h } from 'preact';
+import { h } from 'preact';
 import { tw } from '@tw';
 
 export function Image({ src, alt, style, caption }: { src: string; alt: string; style?: string; caption?: string }) {

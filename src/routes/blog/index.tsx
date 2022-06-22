@@ -1,6 +1,6 @@
 /** @jsx h */
-import { type PageProps } from '$fresh/runtime.ts';
 import { h } from 'preact';
+import { type PageProps } from '$fresh/server.ts';
 import { useState } from 'preact/hooks';
 import { tw } from '@tw';
 
@@ -23,7 +23,6 @@ export default function Blog(props: PageProps) {
   ) {
     const { value: text } = event.currentTarget as HTMLInputElement;
     const filtered = filterArticles({ text, articles: articles });
-    console.log(filtered);
     setFilteredArticles(filtered);
   }
   return (
@@ -51,7 +50,7 @@ export default function Blog(props: PageProps) {
                     class={tw
                       `rounded-md flex flex-col m-auto space-y-2 border-1 border-gray-600 p-3 text-gray-800 dark:text-gray-200 hover:cursor-pointer hover:bg-zinc-900 hover:border-gray-700 hover:text-light-900 hoverbg-light-900 hoverborder-gray-100 dark:hover:bg-zinc-900`}
                   >
-                    <a href={`/blog/${filename}`}>
+                    <a href={`/blog/${filename}`} onMouseMove={(event) => console.log(event)}>
                       <h1
                         class={tw`font-semibold text-xl tracking-wide dark:text-light-50`}
                       >

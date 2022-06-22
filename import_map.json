@@ -2,17 +2,17 @@
   "imports": {
     "@/": "./src/",
     "@tw": "./src/config/twind.ts",
-    "$fresh/": "https://raw.githubusercontent.com/lucacasonato/fresh/ff5684df67aa4edc33dad93fb2406a4868ef666b/",
-    "$twind": "https://esm.sh/twind@0.16.16",
-    "$twind/": "https://esm.sh/twind@0.16.16/",
+    "$fresh/": "https://deno.land/x/fresh@1.0.0-rc.3/",
+    "$twind": "https://esm.sh/twind@0.16.17",
+    "$twind/": "https://esm.sh/twind@0.16.17/",
     "$twind/shim": "https://cdn.skypack.dev/twind/shim",
     "$twind/typography": "https://cdn.skypack.dev/@twind/typography",
-    "$twind/css": "https://esm.sh/twind@0.16.16/css",
-    "$std/": "https://deno.land/std@0.143.0/",
-    "preact": "https://esm.sh/preact@10.6.6",
-    "preact/": "https://esm.sh/preact@10.6.6/",
-    "preact-render-to-string": "https://esm.sh/preact-render-to-string@5.1.20?deps=preact@10.6.6",
-    "preact-render-to-string/jsx": "https://cdn.skypack.dev/preact-render-to-string/jsx",
-    "@mdx-js/preact": "https://esm.sh/@mdx-js/preact@2.1.2"
+    "$twind/css": "https://esm.sh/twind@0.16.17/css",
+    "preact": "https://esm.sh/preact@10.8.1",
+    "preact/": "https://esm.sh/preact@10.8.1/",
+    "preact-render-to-string": "https://esm.sh/preact-render-to-string@5.2.0?deps=preact@10.8.1",
+    "preact-render-to-string/jsx": "https://esm.sh/preact-render-to-string@5.2.0/jsx?deps=preact@10.8.1",
+    "@mdx-js/preact": "https://esm.sh/@mdx-js/preact@2.1.2",
+    "$semver/": "https://deno.land/x/semver@v1.4.0/"
   }
 }

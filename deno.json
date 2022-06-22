@@ -1,7 +1,7 @@
 {
   "tasks": {
-    "dev": "ENVIRONMENT=development deno run -A --allow-net --allow-read --allow-write --allow-env --watch=src/static/,src/routes/,src/islands/ src/dev.ts",
-    "start": "ENVIRONMENT=production deno run -A --allow-read --watch --no-check src/main.ts"
+    "dev": "ENVIRONMENT=development deno run -A --allow-net --allow-read --allow-write --allow-env --allow-run --no-check --watch=static/,src/routes/,src/islands/,src/components src/dev.ts",
+    "start": "ENVIRONMENT=production deno run -A --allow-net --allow-write --allow-env --allow-run --allow-read --watch --no-check src/main.ts"
   },
   "importMap": "./import_map.json",
 

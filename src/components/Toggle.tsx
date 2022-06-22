@@ -28,7 +28,6 @@ export default function Toggle(props: {
   };
 
   useEffect(() => {
-    console.log({ theme, text });
   }, []);
   return (
     <Fragment>

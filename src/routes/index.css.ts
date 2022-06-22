@@ -1,4 +1,4 @@
-import { Handlers } from "$fresh/server.ts";
+import { Handlers } from '$fresh/server.ts';
 
 const CSS = /* css */ `
 :root {
@@ -14,6 +14,7 @@ const CSS = /* css */ `
   outline: 0;
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -26,7 +27,7 @@ const CSS = /* css */ `
 
 ::selection {
   background-color: rgba(231, 189, 243, 0.913);
-  color: #f0f0f0;
+  color: #000;
 }
 
 html {
@@ -196,7 +197,7 @@ a:after {
 .social:hover::before,
 .social:hover::after {
   font-size: 1.2em;
-  font-weight: 900;
+  font-weight: 500;
   color: rgb(243, 189, 211);
 }
 
@@ -223,8 +224,8 @@ export const handler: Handlers = {
   GET: () => {
     return new Response(CSS, {
       headers: {
-        "content-type": "text/css",
-        "cache-control": "public, max-age=31536000, immutable",
+        'content-type': 'text/css',
+        'cache-control': 'public, max-age=31536000, immutable',
       },
     });
   },

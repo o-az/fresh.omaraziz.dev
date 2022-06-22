@@ -10,7 +10,6 @@ export function SearchBar({
   text: string;
   onInputChange: (event: h.JSX.TargetedEvent<HTMLInputElement, Event>) => void;
 }) {
-  console.log({ text });
   return (
     <div className="relative mb-6 w-full w-full">
       <input

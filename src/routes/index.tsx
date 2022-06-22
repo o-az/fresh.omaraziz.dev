@@ -25,7 +25,7 @@ export const LINKS: ReadonlyArray<LinkItem> = [
 
 export default function Home() {
   return (
-    <Page>
+    <Page title="✨">
       <main
         class={tw
           `mt-32 sm:mt-50 relative grid grid-flow-col items-center text-center text-white h-full mx-auto`}

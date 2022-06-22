@@ -29,7 +29,7 @@ const HEADER_ITEMS: ReadonlyArray<HeaderItem> = [
 
 export default function Header() {
   return (
-    <div
+    <header
       class={tw`flex m-1 mt-3 justify-between px-3 sm:px-5 bg-transparent font-mono`}
     >
       <nav
@@ -57,6 +57,6 @@ export default function Header() {
           <Toggle />
         </div>
       </nav>
-    </div>
+    </header>
   );
 }

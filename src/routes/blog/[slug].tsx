@@ -4,26 +4,38 @@ import { type PageProps } from '$fresh/server.ts';
 import { h } from 'preact';
 import { Handlers } from '$fresh/server.ts';
 import { tw } from '@tw';
-
+import { useEffect } from 'preact/hooks';
 import Page from '@/components/Page.tsx';
 import { dateStringToHuman } from '@/utilities/index.ts';
 import { getMdxFile } from '@/lib/compile-mdx.ts';
 import type { ParsedContent } from '@/types/index.ts';
 
-type Page = ParsedContent;
+type Page = ParsedContent & { views: number | string | null };
+
+interface ExternalResponse {
+  data: { slug: string; views: number };
+  error: null | string;
+}
 
 export const handler: Handlers<Page> = {
   async GET(_, context) {
     const { slug } = context.params;
     if (!slug) return new Response('', { status: 307, headers: { location: '/blog' } });
     const { html, frontmatter } = await getMdxFile(slug);
-    return context.render({ html, frontmatter });
+    const baseURL = 'https://omaraziz.dev/api/views';
+
+    const externalRequest = await fetch(`${baseURL}/${slug}`);
+    if (externalRequest.status !== 200) return new Response('', { status: 404 });
+    const externalResponse: ExternalResponse = await externalRequest.json();
+    const { data: { views }, error: externalError } = externalResponse;
+    return context.render({ html, frontmatter, views });
   },
 };
 
 export default function Blog(props: PageProps<Page>) {
-  const { html, frontmatter } = props.data;
+  const { html, frontmatter, views } = props.data;
   const { title, tags, publishedOn, image } = frontmatter;
+
   return (
     <Page
       stylesheets={[
@@ -49,10 +61,10 @@ export default function Blog(props: PageProps<Page>) {
             Omar Aziz /
             {dateStringToHuman(publishedOn)}
           </p>
-          {
-            /* <p class={tw`text-center w-full text-right md:mt-0 max-h-min`}>
-          </p> */
-          }
+
+          <p class={tw`mt-2 text-center w-full sm:text-right md:mt-0`}>
+            {Boolean(views) && ` • ${views} views`}
+          </p>
         </div>
         <ul class={tw`text-center sm:text-left`}>
           {tags?.map((tag) => (

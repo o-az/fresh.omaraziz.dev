@@ -3,6 +3,7 @@
     "@/": "./src/",
     "@tw": "./src/config/twind.ts",
     "$fresh/": "https://deno.land/x/fresh@1.0.0-rc.3/",
+    "deno-http": "https://deno.land/std@0.140.0/http/server.ts",
     "$twind": "https://esm.sh/twind@0.16.17",
     "$twind/": "https://esm.sh/twind@0.16.17/",
     "$twind/shim": "https://cdn.skypack.dev/twind/shim",

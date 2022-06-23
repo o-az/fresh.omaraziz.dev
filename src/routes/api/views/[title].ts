@@ -9,9 +9,13 @@ interface ExternalResponse {
 
 export const handler: Handlers = {
   async GET(_, context) {
-    console.log(JSON.stringify({
-      api: 'api/views/[title].ts'
-    }, null, 2))
+    console.log(JSON.stringify(
+      {
+        api: 'api/views/[title].ts',
+      },
+      null,
+      2,
+    ));
     const { title } = context.params as { title: string };
 
     const externalRequest = await fetch(`${baseURL}/${title}`);

@@ -9,13 +9,15 @@ import {
 import { default as rehypeCodeTitles } from 'https://esm.sh/rehype-code-titles@1.1.0';
 import { default as rehypeSlug } from 'https://esm.sh/rehype-slug@5.0.1';
 import { default as rehypePrism } from 'https://esm.sh/rehype-prism@2.1.2';
-import { default as rehypeMathjax } from 'https://esm.sh/rehype-mathjax@4.0.2?bundle';
+// import { default as rehypeMathjax } from 'https://esm.sh/rehype-mathjax@4.0.2?bundle';
 import type { Frontmatter, ParsedContent } from '@/types/index.ts';
 import { readFile } from '@/utilities/index.ts';
 import * as Unified from 'https://esm.sh/unified@10.1.2';
 import { default as remarkParser } from 'https://esm.sh/remark-parse@10.0.1';
 import { default as remarkRehype } from 'https://esm.sh/remark-rehype@10.1.0';
 import { default as rehypeStringify } from 'https://esm.sh/rehype-stringify@9.0.3';
+import { default as rehypeExternalLinks } from 'https://esm.sh/rehype-external-links@1.0.1';
+import { default as remarkImages } from 'https://esm.sh/remark-images@3.1.0';
 
 const basePath = '../data/articles';
 
@@ -33,10 +35,12 @@ export async function getMdxFile(filename: string): Promise<ParsedContent> {
     .use(remarkGfm)
     .use(remarkToC)
     .use(remarkMath)
+    .use(remarkImages)
     .use(rehypeStringify as Unified.Plugin)
     .use(rehypeSlug)
     .use(rehypeAutolinkHeadings, rehypeAutolinkHeadingsOptions)
     .use(rehypeCodeTitles)
+    .use(rehypeExternalLinks)
     .use(rehypePrism)
     .process(content);
   const { value: html } = compiledMarkdown;

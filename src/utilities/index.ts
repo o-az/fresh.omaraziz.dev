@@ -8,7 +8,8 @@ export async function readFile(filepath: string): Promise<string> {
   }
 }
 
-export const randomArrayElement = <T>(array: T[]): T => array[Math.floor(Math.random() * array.length)] as T;
+export const randomArrayElement = <T>(array: T[]): T =>
+  array[Math.floor(Math.random() * array.length)] as T;
 
 export const removeFalsy = <T>(object: T): NonNullable<T> => JSON.parse(JSON.stringify(object));
 
@@ -17,7 +18,8 @@ export const getTimestamp = () => {
   return timestamp;
 };
 
-export const nonNullable = <T>(value: T): value is NonNullable<T> => value !== null && value !== undefined;
+export const nonNullable = <T>(value: T): value is NonNullable<T> =>
+  value !== null && value !== undefined;
 
 export const dateStringToHuman = (date: string) => {
   const datifiedDate = new Date(date);

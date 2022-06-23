@@ -1,7 +1,7 @@
 /** @jsx h */
-import { h } from "preact";
-import { tw } from "@tw";
-import { SearchIcon } from "@/components/icons/search.tsx";
+import { h } from 'preact';
+import { tw } from '@tw';
+import { SearchIcon } from '@/components/icons/search.tsx';
 
 export function SearchBar({
   text,
@@ -11,9 +11,9 @@ export function SearchBar({
   onInputChange: (event: h.JSX.TargetedEvent<HTMLInputElement, Event>) => void;
 }) {
   return (
-    <div className="relative mb-6 w-full w-full">
+    <div className='relative mb-6 w-full w-full'>
       <input
-        id="search"
+        id='search'
         onInput={onInputChange}
         placeholder={text}
         class={tw

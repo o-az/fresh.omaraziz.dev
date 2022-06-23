@@ -1,6 +1,6 @@
 #!/usr/bin/env -S deno run -A --watch=static/,routes/
 
 import dev from '$fresh/dev.ts';
-import "@/config/index.ts";
+import '@/config/index.ts';
 
 await dev(import.meta.url, './main.ts');

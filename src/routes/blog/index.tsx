@@ -12,7 +12,9 @@ import articles from '@/data/articles/articles.json' assert { type: 'json' };
 function filterArticles(
   { text, articles }: { text: string; articles: Article[] },
 ) {
-  return articles.filter(({ title }) => text.length && title.toLowerCase().includes(text.toLowerCase()));
+  return articles.filter(({ title }) =>
+    text.length && title.toLowerCase().includes(text.toLowerCase())
+  );
 }
 
 export default function Blog(props: PageProps) {
@@ -28,7 +30,7 @@ export default function Blog(props: PageProps) {
   return (
     <Page title={props.params.name}>
       <main
-        class={tw`flex m-3 mt-25 justify-center dark:text-white min-w-full`}
+        class={tw`flex sm:m-3 mt-25 justify-center dark:text-white min-w-full`}
       >
         <div class={tw`max-w-xl w-full mx-auto`}>
           <h1

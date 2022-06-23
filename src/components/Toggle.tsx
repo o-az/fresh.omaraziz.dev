@@ -28,9 +28,10 @@ export default function Toggle() {
   return (
     <Fragment>
       <button
+        for='checkbox'
         aria-label='Toggle Dark Mode'
         class={tw
-          `border-2 border-red-500 h-full text-3xl pt-2 sm:pt-3 hover:scale-150 hover:transition hover:transform hover:duration-150 hover:ease-in-out outline-none border-none focus:outline-none`}
+          `border-2 border-red-500 h-full text-3xl pt-2 sm:pt-3 hover:scale-150 hover:transition hover:transform hover:duration-150 hover:ease-in-out outline-none border-none focus:outline-none cursor-pointer`}
         onClick={switchTheme}
       >
         {text}

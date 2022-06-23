@@ -30,7 +30,7 @@
   },
   "css.validate": false,
   "emmet.includeLanguages": {
-    "javascript": "html",
+    "javascript": "html"
   },
   "[css]": {
     "editor.defaultFormatter": "vscode.css-language-features"

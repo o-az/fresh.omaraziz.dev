@@ -3,6 +3,10 @@ import { Handlers } from '$fresh/server.ts';
 const CSS = /* css */ `
 :root {
   color-scheme: light dark;
+  --background-dark: #0b0c13;
+  --background-light: #fafafa;
+  --text-dark: #fafafa;
+  --text-light: #0b0c13;
 }
 
 * {
@@ -34,6 +38,7 @@ const CSS = /* css */ `
 
 html {
   height: 100%;
+  max-width: 100%;
 }
 
 body {
@@ -43,6 +48,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   isolation: isolate;
+  height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 main {

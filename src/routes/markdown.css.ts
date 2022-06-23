@@ -2,8 +2,9 @@ import { Handlers } from '$fresh/server.ts';
 
 const CSS = /* css */ `
 
-[data-article-content] > l > hr + h2 {
+article > hr + h2 {
   display: none;
+  visibility: hidden;
 }
 
 :root {

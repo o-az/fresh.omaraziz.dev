@@ -17,7 +17,6 @@ interface ExternalResponse {
 
 export const handler: Handlers = {
   async GET() {
-
     const externalRequest = await fetch(baseURL);
     if (externalRequest.status !== 200) return new Response('', { status: 404 });
 

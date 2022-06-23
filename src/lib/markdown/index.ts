@@ -17,7 +17,6 @@ import {
   remarkToC,
 } from './packages.ts';
 
-
 const basePath = '../data/articles';
 
 async function readFile(filename: string): Promise<string> {

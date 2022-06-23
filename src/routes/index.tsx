@@ -1,7 +1,7 @@
 /** @jsx h */
-import { h } from "preact";
-import Page from "@/components/Page.tsx";
-import { tw } from "@tw";
+import { h } from 'preact';
+import Page from '@/components/Page.tsx';
+import { tw } from '@tw';
 
 interface LinkItem {
   name: string;
@@ -10,52 +10,57 @@ interface LinkItem {
 
 export const LINKS: ReadonlyArray<LinkItem> = [
   {
-    name: "GitHub",
-    path: "https://github.com/o-az",
+    name: 'GitHub',
+    path: 'https://github.com/o-az',
   },
   {
-    name: "Twitter",
-    path: "https://twitter.com/undeterrable",
+    name: 'Twitter',
+    path: 'https://twitter.com/undeterrable',
   },
   {
-    name: "Email",
-    path: "mailto:me@omaraziz.dev",
+    name: 'Email',
+    path: 'mailto:me@omaraziz.dev',
   },
 ] as const;
 
 export default function Home() {
+
   return (
-    <Page title="✨">
+    <Page title='✨'>
       <main
         class={tw
-          `mt-32 sm:mt-50 relative grid grid-flow-col items-center text-center text-white h-full mx-auto`}
+          `sm:mt-16 relative grid grid-flow-col items-center text-center text-white max-h-full mx-auto`}
       >
         <section
           class={tw
-            `mt-30 sm:mt-50 relative grid lg:grid-flow-col items-center text-center text-white h-full grid items-center mx-1 sm:mx-30 space-y-6`}
+            `grid lg:grid-flow-col items-center text-center text-white grid items-center mx-1 sm:mx-24 space-y-6 justify-center lg:space-x-12`}
         >
           <p
             class={tw
-              `text-black dark:text-[#f7f7f7] tracking-tighter font-extrabold text-center inter-bold aspect-w-1 text-9xl px-6`}
+              `text-black dark:text-[#f7f7f7] tracking-tighter font-extrabold text-center inter-bold text-8xl sm:text-9xl px-6 mx-auto justify-center`}
           >
             Omar Aziz
           </p>
-          <div class={tw`flex justify-center text-xl md:text-4xl`}>
+          <ul
+            class={tw`flex text-xl md:text-4xl justify-center`}
+          >
             {LINKS.map(({ name, path }, index) => {
               return (
-                <a
-                  id={`${index}-social-link`}
-                  href={path}
-                  target="_blank"
-                  rel="noreferrer"
-                  class={tw
-                    `social mx-3 p-1 text-[26px] font-bold text-gray-600 dark:text-gray-400 hover:dark:text-gray-100 text-gray-600 hover:text-black sm:px-3 sm:py-1 md:inline-block subpixel-antialiased tracking-wide`}
-                >
-                  {name}
-                </a>
+                <li>
+                  <a
+                    id={`${index}-social-link`}
+                    href={path}
+                    target='_blank'
+                    rel='noreferrer'
+                    class={tw
+                      `social mx-3 p-1 text-[26px] font-bold text-gray-600 dark:text-gray-400 hover:dark:text-gray-100 text-gray-600 hover:text-black sm:px-3 sm:py-1 subpixel-antialiased tracking-wide`}
+                  >
+                    {name}
+                  </a>
+                </li>
               );
             })}
-          </div>
+          </ul>
         </section>
       </main>
     </Page>

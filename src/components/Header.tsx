@@ -17,14 +17,14 @@ const HEADER_ITEMS: ReadonlyArray<HeaderItem> = [
     name: 'blog',
     path: '/blog',
   },
-  {
-    name: 'projects',
-    path: '/projects',
-  },
-  {
-    name: 'gm',
-    path: '/gm',
-  },
+  // {
+  //   name: 'projects',
+  //   path: '/projects',
+  // },
+  // {
+  //   name: 'gm',
+  //   path: '/gm',
+  // },
 ] as const;
 
 export default function Header() {
@@ -34,7 +34,7 @@ export default function Header() {
     >
       <nav
         class={tw
-          `flex items-center justify-between w-full relative border-gray-200 dark:border-gray-700 mx-auto bg-opacity-60 sm:px-6 text-lg sm:text-2xl align-bottom`}
+          `flex items-center justify-between w-full relative border-gray-200 dark:border-gray-700 mx-auto bg-opacity-60 sm:px-6 text-2xl sm:text-2xl align-bottom`}
       >
         <ul class={tw`space-x-4 sm:space-x-7 flex`}>
           {HEADER_ITEMS.map(({ name, path }) => {
@@ -51,7 +51,7 @@ export default function Header() {
           })}
         </ul>
         <div
-          class={tw`text-center sm:text-right sm:pr-5 w-full h-full align-middle overflow-hidden`}
+          class={tw`text-center sm:text-right sm:pr-5 w-24 h-full align-middle overflow-hidden`}
         >
           <Toggle />
         </div>

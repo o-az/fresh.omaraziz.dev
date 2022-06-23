@@ -4,7 +4,6 @@ import { type PageProps } from '$fresh/server.ts';
 import { h } from 'preact';
 import { Handlers } from '$fresh/server.ts';
 import { tw } from '@tw';
-import { useEffect } from 'preact/hooks';
 import Page from '@/components/Page.tsx';
 import { dateStringToHuman } from '@/utilities/index.ts';
 import { getMdxFile } from '@/lib/compile-mdx.ts';
@@ -79,8 +78,9 @@ export default function Blog(props: PageProps<Page>) {
         <article
           id='article'
           data-article-content
-          class={tw
-            `flex flex-col h-full min-w-full mb-16 items-start justify-center prose prose-img:rounded-xl prose-img:border-b-2 prose-a:text-blue-300 dark:prose-invert dark:text-gray-700 truncate max-w-full prose-p:text-white text-white dark:test-white`}
+          class={tw([
+            'flex flex-col h-full min-w-full mb-16 items-start justify-center prose prose-img:rounded-xl prose-img:border-b-2 prose-a:text-blue-300 dark:prose-invert dark:text-gray-700 truncate max-w-full prose-p:text-white text-white dark:test-white',
+          ])}
           dangerouslySetInnerHTML={{ __html: html }}
         />
         <script

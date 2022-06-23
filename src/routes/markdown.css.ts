@@ -1,8 +1,8 @@
 import { Handlers } from '$fresh/server.ts';
 
 const CSS = /* css */ `
-
-article > hr + h2 {
+/** Hack to get around botched TOC */
+hr, ol > li:first-child, hr, ul > li:first-child, hr + h2 {
   display: none;
   visibility: hidden;
 }
@@ -34,7 +34,6 @@ main,article,p,div {
   margin-top: 1.25rem !important;
   margin-bottom: 1.25rem !important;
   --tw-text-opacity: 1;
-  color: gray;
   width: 100%;
 }
 *[class*=prose] h1:hover,
@@ -50,7 +49,7 @@ main,article,p,div {
 .dark *[class*=prose] h4:hover,
 .dark *[class*=prose] h5:hover {
   --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  /* color: rgba(255, 255, 255, var(--tw-text-opacity)); */
 }
 
 [data-article-title] {
@@ -134,6 +133,7 @@ pre {
   width: 100%;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  font-size: 16px !important;
 }
 svg,
 g {
@@ -363,21 +363,21 @@ span.line > span {
 }
 
 .prose *:hover > .anchor {
-  visibility: visible
+  visibility: visible;
 }
 
 *[class*=prose] pre code {
-  border: initial
+  border: initial;
 }
 
 *[class*=prose] > :first-child {
   margin-top: 1.25em !important;
-  margin-bottom: 1.25em !important
+  margin-bottom: 1.25em !important;
 }
 
 .token.comment {
   --tw-text-opacity: 1;
-  color: rgba(107, 114, 128, var(--tw-text-opacity))
+  color: rgba(107, 114, 128, var(--tw-text-opacity));
 }
 .token.property,
 .token.tag,
@@ -386,9 +386,9 @@ span.line > span {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  font-weight: 600;
+  font-weight: 500;
   --tw-text-opacity: 1;
-  color: rgba(244, 114, 182, var(--tw-text-opacity))
+  color: rgba(244, 114, 182, var(--tw-text-opacity));
 }
 .token.selector,
 .token.attr-name,
@@ -397,7 +397,7 @@ span.line > span {
 .token.builtin,
 .token.inserted {
   --tw-text-opacity: 1;
-  color: rgba(167, 139, 250, var(--tw-text-opacity))
+  color: rgba(167, 139, 250, var(--tw-text-opacity));
 }
 .token.operator,
 .token.entity,
@@ -409,54 +409,54 @@ span.line > span {
 }
 .token.keyword {
   --tw-text-opacity: 1;
-  color: rgba(124, 58, 237, var(--tw-text-opacity))
+  color: rgba(124, 58, 237, var(--tw-text-opacity));
 }
 .token.atrule,
 .token.attr-value {
   --tw-text-opacity: 1;
-  color: rgba(16, 185, 129, var(--tw-text-opacity))
+  color: rgba(16, 185, 129, var(--tw-text-opacity));
 }
 .token.function,
 .token.class-name {
   --tw-text-opacity: 1;
-  color: rgba(236, 72, 153, var(--tw-text-opacity))
+  color: rgba(236, 72, 153, var(--tw-text-opacity));
 }
 .token.regex,
 .token.important,
 .token.variable {
   --tw-text-opacity: 1;
-  color: rgba(245, 158, 11, var(--tw-text-opacity))
+  color: rgba(245, 158, 11, var(--tw-text-opacity));
 }
 code[class*=language-],
 pre[class*=language-] {
   --tw-text-opacity: 1;
-  color: rgba(31, 41, 55, var(--tw-text-opacity))
+  color: rgba(31, 41, 55, var(--tw-text-opacity));
 }
 .dark code[class*=language-],
 .dark pre[class*=language-] {
   --tw-text-opacity: 1;
-  color: rgba(249, 250, 251, var(--tw-text-opacity))
+  color: rgba(249, 250, 251, var(--tw-text-opacity));
 }
 pre::-webkit-scrollbar {
-  display: none
+  display: none;
 }
 input[type=text],
 input[type=email] {
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none
+  appearance: none;
 }
 svg {
   --tw-text-opacity: 1;
-  color: rgba(253, 253, 253, var(--tw-text-opacity))
+  color: rgba(253, 253, 253, var(--tw-text-opacity));
 }
 .step > h3 {
   margin-top: 0;
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 .dark *[class*=prose] > p {
   --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity))
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 *[class*=prose] .tweet a {
   text-decoration: inherit;
@@ -468,9 +468,9 @@ svg {
   margin-top: 1.5rem !important;
   margin-bottom: 0 !important
 }
-#table-of-contents ~ ul > li > a {
+ol > li > a {
   --tw-text-opacity: 1 !important;
-  color: rgba(121, 130, 255, var(--tw-text-opacity)) !important
+  color: rgba(121, 130, 255, var(--tw-text-opacity)) !important;
 }
 table {
   display: block;

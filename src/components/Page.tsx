@@ -1,34 +1,34 @@
 /** @jsx h */
-import { Head } from '$fresh/runtime.ts';
+import { asset, Head } from '$fresh/runtime.ts';
 import { type ComponentChildren, h } from 'preact';
 import Header from '@/components/Header.tsx';
 import Banner from '@/components/Banner.tsx';
 import { tw } from '@tw';
 
-export default function Page(
-  {
+export default function Page(props: {
+  title?: string;
+  stylesheets?: Array<string>;
+  scripts?: Array<string>;
+  bodyScripts?: Array<string>;
+  bodyAttributes?: Record<string, string>;
+  children: ComponentChildren;
+}) {
+  const {
     title,
     stylesheets,
     scripts,
     bodyScripts,
     bodyAttributes,
     children,
-  }: {
-    title?: string;
-    stylesheets?: Array<string>;
-    scripts?: Array<string>;
-    bodyScripts?: Array<string>;
-    bodyAttributes?: Record<string, string>;
-    children: ComponentChildren;
-  },
-) {
+  } = props;
+
   return (
     <html class='dark'>
       <Head>
         <title>{title || 'Omar Aziz'}</title>
-        {/* <link href="/favicon.ico" rel="icon" type="image/x-icon" /> */}
-        <script src='https://cdn.tailwindcss.com'></script>
-        <script type='module' src='https://cdn.skypack.dev/twind/shim'></script>
+        <link href={`/favicon.ico`} rel="icon" type="image/x-icon" />
+        {/* <script src='https://cdn.tailwindcss.com'></script> */}
+        {/* <script type='module' src='https://cdn.skypack.dev/twind/shim'></script> */}
         <link rel='stylesheet' href='/index.css' />
 
         {stylesheets?.map((href) => <link href={href} type='text/css' rel='stylesheet' />)}

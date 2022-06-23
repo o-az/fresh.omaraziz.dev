@@ -1,4 +1,4 @@
-import { apply, type Configuration, cssomSheet, setup, tw } from '$twind';
+import { apply, setup, tw } from '$twind';
 
 import { css } from '$twind/css';
 import * as colors from '$twind/colors';
@@ -8,7 +8,24 @@ import { type InnerRenderFunction, RenderContext } from '$fresh/server.ts';
 
 import { IS_BROWSER } from '$fresh/runtime.ts';
 
-export const theme = {
+export const twindTheme = {
+  fontFamily: {
+    sans: 'Inter, system-ui',
+    serif: '"IBM Plex Sans", SFMono-Regular',
+    mono: ['JetBrains Mono', 'monospace'],
+  },
+  extend: {
+    spacing: {
+      '8xl': '96rem',
+      '9xl': '128rem',
+      '10xl': '160rem',
+      '11xl': '192rem',
+      '12xl': '224rem',
+      '13xl': '256rem',
+      '14xl': '288rem',
+      '15xl': '320rem',
+    },
+  },
   colors: {
     blue: colors.blue,
     black: colors.black,
@@ -19,33 +36,33 @@ export const theme = {
     transparent: 'transparent',
   },
 };
+
 if (IS_BROWSER) {
-  setup({ theme: { colors } });
+  setup({
+    mode: 'strict',
+    plugins: { ...twindTypography({ className: 'prose' }) },
+    important: true,
+    darkMode: 'class',
+    theme: twindTheme,
+  });
 }
-
-export const twindConfig: Configuration = {
-  plugins: { ...twindTypography({ className: 'prose' }) },
-  important: true,
-  darkMode: 'class',
-  theme: {
-    fontFamily: {
-      sans: ['Inter', 'system-ui'],
-      serif: ['"IBM Plex Sans"', 'SFMono-Regular'],
-      mono: ['JetBrains Mono', 'monospace'],
-    },
-    colors: { ...colors },
-  },
-};
-
 const sheet = virtualSheet();
 sheet.reset();
-setup({ ...twindConfig, sheet, theme });
+setup({
+  sheet,
+  theme: twindTheme,
+  mode: 'silent',
+  plugins: { ...twindTypography({ className: 'prose' }) },
+  // important: true,
+  darkMode: 'class',
+
+});
 
 export function render(context: RenderContext, render: InnerRenderFunction) {
   const snapshot = context.state.get('twindSnapshot') as unknown[] | null;
   sheet.reset(snapshot || undefined);
   render();
-  context.styles.splice(0, context.styles.length, ...sheet.target);
+  context.styles.splice(0, context.styles.length, ...(sheet).target);
   const newSnapshot = sheet.reset();
   context.state.set('twindSnapshot', newSnapshot);
 }

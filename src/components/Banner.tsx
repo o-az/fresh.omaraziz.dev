@@ -3,10 +3,8 @@ import { h } from 'preact';
 import { tw } from '@tw';
 
 export default function Banner(props: { text: string }) {
-  console.log(new URL(import.meta.url).pathname.endsWith('tsx'));
-  if (Deno.env.get('ENVIRONMENT') === 'development') {
-    return null;
-  }
+  if (Deno.env.get('ENVIRONMENT') === 'development') return null;
+
   return (
     <div
       class={tw

@@ -192,7 +192,6 @@ a:after {
 .social:before,
 .social:after {
   position: absolute;
-  top: 3px;
   color: transparent;
 }
 

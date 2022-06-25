@@ -12,7 +12,9 @@ import * as $6 from "./routes/gm.tsx";
 import * as $7 from "./routes/index.css.ts";
 import * as $8 from "./routes/index.tsx";
 import * as $9 from "./routes/markdown.css.ts";
-import * as $$0 from "./islands/Toggle.tsx";
+import * as $$0 from "./islands/ArticlesList.tsx";
+import * as $$1 from "./islands/SearchBar.tsx";
+import * as $$2 from "./islands/Toggle.tsx";
 
 const manifest = {
   routes: {
@@ -28,7 +30,9 @@ const manifest = {
     "./routes/markdown.css.ts": $9,
   },
   islands: {
-    "./islands/Toggle.tsx": $$0,
+    "./islands/ArticlesList.tsx": $$0,
+    "./islands/SearchBar.tsx": $$1,
+    "./islands/Toggle.tsx": $$2,
   },
   baseUrl: import.meta.url,
 };

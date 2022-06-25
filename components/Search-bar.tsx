@@ -4,7 +4,7 @@ import { tw } from "../config/twind.ts";
 
 import { SearchIcon } from "./icons/search.tsx";
 
-export function SearchBar({
+export default function SearchBar({
   text,
   onInputChange,
 }: {

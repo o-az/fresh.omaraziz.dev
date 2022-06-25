@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from 'preact';
-import Page from '@/components/Page.tsx';
-import { tw } from '@tw';
+import Page from '../components/Page.tsx';
+import { tw } from '../config/twind.ts';
 import { type PageProps } from '$fresh/server.ts';
 
 export default function FourOFour(props: PageProps) {

@@ -1,5 +1,5 @@
 // deno-lint-ignore-file no-fallthrough
-import { env } from '@/config/index.ts';
+import { env } from '../config/index.ts';
 const enum LOG_TYPE {
   INFO = 'info',
   WARN = 'warn',

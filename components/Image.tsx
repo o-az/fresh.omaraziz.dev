@@ -1,7 +1,7 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
 import { h } from 'preact';
-import { tw } from '@tw';
+import { tw } from '../config/twind.ts';
 
 export function Image(
   { src, alt, style, caption }: { src: string; alt: string; style?: string; caption?: string },

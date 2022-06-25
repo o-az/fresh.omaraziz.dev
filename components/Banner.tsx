@@ -1,6 +1,6 @@
 /** @jsx h */
 import { h } from 'preact';
-import { tw } from '@tw';
+import { tw } from '../config/twind.ts';
 
 export default function Banner(props: { text: string }) {
   if (Deno.env.get('ENVIRONMENT') === 'development') return null;

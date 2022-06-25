@@ -1,9 +1,9 @@
 /** @jsx h */
 import { asset, Head } from '$fresh/runtime.ts';
 import { type ComponentChildren, h } from 'preact';
-import Header from '@/components/Header.tsx';
-import Banner from '@/components/Banner.tsx';
-import { tw } from '@tw';
+import Header from './Header.tsx';
+import Banner from './Banner.tsx';
+import { tw } from '../config/twind.ts';
 
 export default function Page(props: {
   title?: string;
@@ -26,7 +26,7 @@ export default function Page(props: {
     <html class='dark'>
       <Head>
         <title>{title || 'Omar Aziz'}</title>
-        <link href={`/favicon.ico`} rel="icon" type="image/x-icon" />
+        <link href={`/favicon.ico`} rel='icon' type='image/x-icon' />
         {/* <script src='https://cdn.tailwindcss.com'></script> */}
         {/* <script type='module' src='https://cdn.skypack.dev/twind/shim'></script> */}
         <link rel='stylesheet' href='/index.css' />

@@ -1,4 +1,4 @@
-import { apply, setup, tw } from '$twind';
+import { apply, setup, tw,type Configuration } from '$twind';
 
 import { css } from '$twind/css';
 import * as colors from '$twind/colors';
@@ -37,15 +37,14 @@ export const twindTheme = {
   },
 };
 
-if (IS_BROWSER) {
-  setup({
-    mode: 'strict',
-    plugins: { ...twindTypography({ className: 'prose' }) },
-    important: true,
-    darkMode: 'class',
-    theme: twindTheme,
-  });
-}
+export const config: Configuration = {
+  darkMode: 'class',
+  mode: 'silent',
+  theme: twindTheme,
+  important: true,
+  plugins: { ...twindTypography({ className: 'prose' }) },
+};
+if (IS_BROWSER) setup(config);
 const sheet = virtualSheet();
 sheet.reset();
 setup({

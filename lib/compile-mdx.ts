@@ -6,8 +6,8 @@ import { default as rehypeCodeTitles } from 'https://esm.sh/rehype-code-titles@1
 import { default as rehypeSlug } from 'https://esm.sh/rehype-slug@5.0.1';
 import { default as rehypePrism } from 'https://esm.sh/rehype-prism@2.1.2';
 import { default as rehypeToc } from 'https://esm.sh/@jsdevtools/rehype-toc@3.0.2';
-import type { Frontmatter, ParsedContent } from '@/types/index.ts';
-import { readFile } from '@/utilities/index.ts';
+import type { Frontmatter, ParsedContent } from '../types/index.ts';
+import { readFile } from '../utilities/index.ts';
 import * as Unified from 'https://esm.sh/unified@10.1.2';
 import { default as remarkParser } from 'https://esm.sh/remark-parse@10.0.1';
 import { default as remarkRehype } from 'https://esm.sh/remark-rehype@10.1.0';

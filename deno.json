@@ -1,39 +1,6 @@
 {
   "tasks": {
-    "dev": "ENVIRONMENT=development deno run -A --allow-net --allow-read --allow-write --allow-env --allow-run --no-check --watch=static/,src/routes/,src/islands/,src/components src/dev.ts",
-    "start": "ENVIRONMENT=production deno run -A --allow-net --allow-write --allow-env --allow-run --allow-read --watch --no-check src/main.ts"
+    "start": "deno run -A --watch=static/,routes/ dev.ts"
   },
-  "importMap": "./import_map.json",
-
-  "lint": {
-    "files": {
-      "include": [
-        "./"
-      ]
-    },
-    "rules": {
-      "tags": [
-        "recommended"
-      ],
-      "include": [
-        "ban-untagged-todo"
-      ],
-      "exclude": [
-        "no-unused-vars"
-      ]
-    }
-  },
-  "fmt": {
-    "files": {
-      "include": [
-        "./"
-      ]
-    },
-    "options": {
-      "useTabs": false,
-      "lineWidth": 100,
-      "indentWidth": 2,
-      "singleQuote": true
-    }
-  }
+  "importMap": "./import_map.json"
 }

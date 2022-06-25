@@ -1,7 +1,8 @@
 /** @jsx h */
 import { h } from 'preact';
-import { tw } from '@tw';
-import { SearchIcon } from '@/components/icons/search.tsx';
+import { tw } from '../config/twind.ts';
+
+import { SearchIcon } from './icons/search.tsx';
 
 export function SearchBar({
   text,

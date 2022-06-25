@@ -1,16 +1,17 @@
 /** @jsx h */
 import { h } from 'preact';
-import Page from '@/components/Page.tsx';
-import { tw } from '@tw';
+import Page from '../components/Page.tsx';
+import { tw } from '../config/twind.ts';
+import { type PageProps } from '$fresh/server.ts';
 
-export default function Projects() {
+export default function GM(props: PageProps) {
   return (
     <Page title='✨'>
       <main
         class={tw
           `mt-32 sm:mt-50 relative grid grid-flow-col items-center text-center text-white h-full mx-auto`}
       >
-        Projects - WIP
+        gm - WIP
       </main>
     </Page>
   );

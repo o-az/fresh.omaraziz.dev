@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from 'preact';
-import Toggle from '@/components/Toggle.tsx';
-import { tw } from '@tw';
+import Toggle from '../islands/Toggle.tsx';
+import { tw } from '../config/twind.ts';
 
 interface HeaderItem {
   name: string;
@@ -17,14 +17,6 @@ const HEADER_ITEMS: ReadonlyArray<HeaderItem> = [
     name: 'blog',
     path: '/blog',
   },
-  // {
-  //   name: 'projects',
-  //   path: '/projects',
-  // },
-  // {
-  //   name: 'gm',
-  //   path: '/gm',
-  // },
 ] as const;
 
 export default function Header() {
@@ -51,7 +43,7 @@ export default function Header() {
           })}
         </ul>
         <div
-          class={tw`text-center sm:text-right sm:pr-5 w-24 h-full align-middle overflow-hidden`}
+          class={tw`text-center sm:text-right sm:pr-5 w-24 h-full align-middle`}
         >
           <Toggle />
         </div>

@@ -3,11 +3,11 @@
 import { type PageProps } from '$fresh/server.ts';
 import { h } from 'preact';
 import { Handlers } from '$fresh/server.ts';
-import { tw } from '@tw';
-import Page from '@/components/Page.tsx';
-import { dateStringToHuman } from '@/utilities/index.ts';
-import { getMdxFile } from '@/lib/compile-mdx.ts';
-import type { ParsedContent } from '@/types/index.ts';
+import Page from '../../components/Page.tsx';
+import { tw } from '../../config/twind.ts';
+import { dateStringToHuman } from '../../utilities/index.ts';
+import { getMdxFile } from '../../lib/compile-mdx.ts';
+import type { ParsedContent } from '../../types/index.ts';
 
 type Page = ParsedContent & { views: number | string | null };
 
@@ -83,23 +83,26 @@ export default function Blog(props: PageProps<Page>) {
           ])}
           dangerouslySetInnerHTML={{ __html: html }}
         />
-        <script
-          src='https://giscus.app/client.js'
-          data-repo='o-az/fresh.omaraziz.dev'
-          data-repo-id='R_kgDOHhfrxQ'
-          data-category='General'
-          data-category-id='DIC_kwDOHhfrxc4CP024'
-          data-mapping='title'
-          data-reactions-enabled='1'
-          data-emit-metadata='1'
-          data-input-position='top'
-          data-theme='dark'
-          data-lang='en'
-          data-loading='lazy'
-          crossOrigin='anonymous'
-          async
-        >
-        </script>
+        {Deno.env.get('ENVIRONMENT') !== 'development' &&
+          (
+            <script
+              src='https://giscus.app/client.js'
+              data-repo='o-az/fresh.omaraziz.dev'
+              data-repo-id='R_kgDOHhfrxQ'
+              data-category='General'
+              data-category-id='DIC_kwDOHhfrxc4CP024'
+              data-mapping='title'
+              data-reactions-enabled='1'
+              data-emit-metadata='1'
+              data-input-position='top'
+              data-theme='dark'
+              data-lang='en'
+              data-loading='lazy'
+              crossOrigin='anonymous'
+              async
+            >
+            </script>
+          )}
       </main>
     </Page>
   );

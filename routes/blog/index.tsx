@@ -2,12 +2,12 @@
 import { h } from 'preact';
 import { type PageProps } from '$fresh/server.ts';
 import { useState } from 'preact/hooks';
-import { tw } from '@tw';
+import Page from '../../components/Page.tsx';
+import { tw } from '../../config/twind.ts';
 
-import Page from '@/components/Page.tsx';
-import { SearchBar } from '@/components/search-bar.tsx';
-import type { Article } from '@/types/index.ts';
-import articles from '@/data/articles/articles.json' assert { type: 'json' };
+import { SearchBar } from '../../components/Search-bar.tsx';
+import type { Article } from '../../types/index.ts';
+import articles from '../../data/articles/articles.json' assert { type: 'json' };
 
 function filterArticles(
   { text, articles }: { text: string; articles: Article[] },

@@ -1,7 +1,7 @@
 /** @jsx h */
-import { h } from 'preact';
-import Toggle from '../islands/Toggle.tsx';
-import { tw } from '../config/twind.ts';
+import { h } from "preact";
+import Toggle from "../islands/Toggle.tsx";
+import { tw } from "../config/twind.ts";
 
 interface HeaderItem {
   name: string;
@@ -10,19 +10,20 @@ interface HeaderItem {
 
 const HEADER_ITEMS: ReadonlyArray<HeaderItem> = [
   {
-    name: 'home',
-    path: '/',
+    name: "home",
+    path: "/",
   },
   {
-    name: 'blog',
-    path: '/blog',
+    name: "blog",
+    path: "/blog",
   },
 ] as const;
 
 export default function Header() {
   return (
     <header
-      class={tw`flex m-1 mt-3 justify-between px-3 sm:px-5 bg-transparent font-mono`}
+      class={tw
+        `flex m-1 mt-3 justify-between px-3 sm:px-5 bg-transparent font-mono`}
     >
       <nav
         class={tw

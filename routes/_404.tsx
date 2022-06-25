@@ -1,12 +1,12 @@
 /** @jsx h */
-import { h } from 'preact';
-import Page from '../components/Page.tsx';
-import { tw } from '../config/twind.ts';
-import { type PageProps } from '$fresh/server.ts';
+import { h } from "preact";
+import Page from "../components/Page.tsx";
+import { tw } from "../config/twind.ts";
+import { type PageProps } from "$fresh/server.ts";
 
 export default function FourOFour(props: PageProps) {
   return (
-    <Page title='404'>
+    <Page title="404">
       <main class={tw`m-6 mt-20 mx-auto text-center w-full`}>
         <h2
           class={tw

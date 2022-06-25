@@ -1,4 +1,9 @@
-export type Frontmatter = { title: string; publishedOn: string; tags: string[]; image?: string };
+export type Frontmatter = {
+  title: string;
+  publishedOn: string;
+  tags: string[];
+  image?: string;
+};
 export interface ParsedContent {
   html: string;
   frontmatter: Frontmatter;

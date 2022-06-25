@@ -7,10 +7,7 @@
     "$twind": "https://esm.sh/twind@0.16.17",
     "$twind/": "https://esm.sh/twind@0.16.17/",
     "twind": "./config/twind.ts",
-    "@/": "./src/",
-    "@tw": "./src/config/twind.ts",
     "deno-http": "https://deno.land/std@0.140.0/http/server.ts",
-
     "$twind/shim": "https://cdn.skypack.dev/twind/shim",
     "$twind/typography": "https://cdn.skypack.dev/@twind/typography",
     "$twind/css": "https://esm.sh/twind@0.16.17/css"

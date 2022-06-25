@@ -1,6 +1,6 @@
-import { Handlers } from '$fresh/server.ts';
+import { Handlers } from "$fresh/server.ts";
 
-const baseURL = 'https://omaraziz.dev/api/views';
+const baseURL = "https://omaraziz.dev/api/views";
 
 interface ExternalResponse {
   data: { slug: string; views: number };
@@ -11,7 +11,7 @@ export const handler: Handlers = {
   async GET(_, context) {
     console.log(JSON.stringify(
       {
-        api: 'api/views/[title].ts',
+        api: "api/views/[title].ts",
       },
       null,
       2,
@@ -19,16 +19,18 @@ export const handler: Handlers = {
     const { title } = context.params as { title: string };
 
     const externalRequest = await fetch(`${baseURL}/${title}`);
-    if (externalRequest.status !== 200) return new Response('', { status: 404 });
+    if (externalRequest.status !== 200) {
+      return new Response("", { status: 404 });
+    }
 
     const externalResponse: ExternalResponse = await externalRequest.json();
     const { data: { views }, error: externalError } = externalResponse;
 
-    if (externalError) return new Response('', { status: 404 });
+    if (externalError) return new Response("", { status: 404 });
 
     return new Response(`${views}`, {
       status: 200,
-      headers: { 'Content-Type': 'text/plain; charset=UTF-8' },
+      headers: { "Content-Type": "text/plain; charset=UTF-8" },
     });
   },
 };

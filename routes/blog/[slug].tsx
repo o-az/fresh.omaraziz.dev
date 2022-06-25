@@ -1,13 +1,13 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
-import { type PageProps } from '$fresh/server.ts';
-import { h } from 'preact';
-import { Handlers } from '$fresh/server.ts';
-import Page from '../../components/Page.tsx';
-import { tw } from '../../config/twind.ts';
-import { dateStringToHuman } from '../../utilities/index.ts';
-import { getMdxFile } from '../../lib/compile-mdx.ts';
-import type { ParsedContent } from '../../types/index.ts';
+import { type PageProps } from "$fresh/server.ts";
+import { h } from "preact";
+import { Handlers } from "$fresh/server.ts";
+import Page from "../../components/Page.tsx";
+import { tw } from "../../config/twind.ts";
+import { dateStringToHuman } from "../../utilities/index.ts";
+import { getMdxFile } from "../../lib/compile-mdx.ts";
+import type { ParsedContent } from "../../types/index.ts";
 
 type Page = ParsedContent & { views: number | string | null };
 
@@ -19,12 +19,16 @@ interface ExternalResponse {
 export const handler: Handlers<Page> = {
   async GET(_, context) {
     const { slug } = context.params;
-    if (!slug) return new Response('', { status: 307, headers: { location: '/blog' } });
+    if (!slug) {
+      return new Response("", { status: 307, headers: { location: "/blog" } });
+    }
     const { html, frontmatter } = await getMdxFile(slug);
-    const baseURL = 'https://omaraziz.dev/api/views';
+    const baseURL = "https://omaraziz.dev/api/views";
 
     const externalRequest = await fetch(`${baseURL}/${slug}`);
-    if (externalRequest.status !== 200) return new Response('', { status: 404 });
+    if (externalRequest.status !== 200) {
+      return new Response("", { status: 404 });
+    }
     const externalResponse: ExternalResponse = await externalRequest.json();
     const { data: { views }, error: externalError } = externalResponse;
     return context.render({ html, frontmatter, views });
@@ -38,7 +42,7 @@ export default function Blog(props: PageProps<Page>) {
   return (
     <Page
       stylesheets={[
-        '/markdown.css',
+        "/markdown.css",
       ]}
     >
       <main
@@ -76,29 +80,29 @@ export default function Blog(props: PageProps<Page>) {
           ))}
         </ul>
         <article
-          id='article'
+          id="article"
           data-article-content
           class={tw([
-            'flex flex-col h-full min-w-full mb-16 items-start justify-center prose prose-img:rounded-xl prose-img:border-b-2 prose-a:text-blue-300 dark:prose-invert dark:text-gray-700 truncate max-w-full prose-p:text-white text-white dark:test-white',
+            "flex flex-col h-full min-w-full mb-16 items-start justify-center prose prose-img:rounded-xl prose-img:border-b-2 prose-a:text-blue-300 dark:prose-invert dark:text-gray-700 truncate max-w-full prose-p:text-white text-white dark:test-white",
           ])}
           dangerouslySetInnerHTML={{ __html: html }}
         />
-        {Deno.env.get('ENVIRONMENT') !== 'development' &&
+        {Deno.env.get("ENVIRONMENT") !== "development" &&
           (
             <script
-              src='https://giscus.app/client.js'
-              data-repo='o-az/fresh.omaraziz.dev'
-              data-repo-id='R_kgDOHhfrxQ'
-              data-category='General'
-              data-category-id='DIC_kwDOHhfrxc4CP024'
-              data-mapping='title'
-              data-reactions-enabled='1'
-              data-emit-metadata='1'
-              data-input-position='top'
-              data-theme='dark'
-              data-lang='en'
-              data-loading='lazy'
-              crossOrigin='anonymous'
+              src="https://giscus.app/client.js"
+              data-repo="o-az/fresh.omaraziz.dev"
+              data-repo-id="R_kgDOHhfrxQ"
+              data-category="General"
+              data-category-id="DIC_kwDOHhfrxc4CP024"
+              data-mapping="title"
+              data-reactions-enabled="1"
+              data-emit-metadata="1"
+              data-input-position="top"
+              data-theme="dark"
+              data-lang="en"
+              data-loading="lazy"
+              crossOrigin="anonymous"
               async
             >
             </script>

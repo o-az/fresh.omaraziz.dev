@@ -1,8 +1,8 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
-import { Fragment, h } from 'preact';
-import Page from '../components/Page.tsx';
-import { tw } from '../config/twind.ts';
+import { Fragment, h } from "preact";
+import Page from "../components/Page.tsx";
+import { tw } from "../config/twind.ts";
 
 interface LinkItem {
   name: string;
@@ -11,16 +11,16 @@ interface LinkItem {
 
 export const LINKS: ReadonlyArray<LinkItem> = [
   {
-    name: 'GitHub',
-    path: 'https://github.com/o-az',
+    name: "GitHub",
+    path: "https://github.com/o-az",
   },
   {
-    name: 'Twitter',
-    path: 'https://twitter.com/undeterrable',
+    name: "Twitter",
+    path: "https://twitter.com/undeterrable",
   },
   {
-    name: 'Email',
-    path: 'mailto:me@omaraziz.dev',
+    name: "Email",
+    path: "mailto:me@omaraziz.dev",
   },
 ] as const;
 
@@ -50,11 +50,11 @@ export default function Home() {
                   <a
                     id={`${index}-social-link`}
                     href={path}
-                    target='_blank'
-                    rel='noreferrer'
+                    target="_blank"
+                    rel="noreferrer"
                     class={tw([
                       `mx-3 p-1 text-[26px] font-bold text-gray-600 dark:text-gray-400 hover:dark:text-gray-100 text-gray-600 hover:text-black sm:px-3 sm:py-1 subpixel-antialiased tracking-wide`,
-                      'social',
+                      "social",
                     ])}
                   >
                     {name}
